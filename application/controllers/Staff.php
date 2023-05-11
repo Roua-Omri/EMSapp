@@ -131,6 +131,7 @@ class Staff extends CI_Controller {
         $state=$this->input->post('txtstate');
         $country=$this->input->post('slccountry');
         $address=$this->input->post('txtaddress');
+		$added=$this->session->userdata('userid');
 
         if($this->form_validation->run() !== false)
         {
