@@ -79,7 +79,12 @@ class Salary_model extends CI_Model {
             return $result;
         }
     }
-
+    function delete_salary($id)
+    {
+        $this->db->where('id', $id);
+        $this->db->delete("salary_tbl");
+        $this->db->affected_rows();
+    }
 
 
     
