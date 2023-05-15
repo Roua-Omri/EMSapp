@@ -20,27 +20,6 @@ class Salary extends CI_Controller {
         $this->load->view('admin/footer');
     }
 
-    public function invoice($id)
-    {
-        $data['content']=$this->Salary_model->select_salary_byID($id);
-        $this->load->view('admin/header');
-        $this->load->view('admin/salary-invoice',$data);
-        $this->load->view('admin/footer');
-    }
-
-    public function invoicestaff($id)
-    {
-        $data['content']=$this->Salary_model->select_salary_byID($id);
-        $this->load->view('staff/header');
-        $this->load->view('staff/salaryinvoice',$data);
-        $this->load->view('staff/footer');
-    }
-
-    public function invoice_print($id)
-    {
-        $data['content']=$this->Salary_model->select_salary_byID($id);
-        $this->load->view('admin/invoice-print',$data);
-    }
 
     public function manage()
     {
