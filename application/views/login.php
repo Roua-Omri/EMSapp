@@ -29,9 +29,7 @@
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
-  <div class="login-logo">
-    <a href="#"><b>Employee</b> Management</a>
-  </div>
+
   <!-- /.login-logo -->
   <div class="login-box-body">
     <p class="login-box-msg">Please Login To Continue..</p>

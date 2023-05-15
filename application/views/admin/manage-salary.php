@@ -52,8 +52,6 @@
                     <th>Basic Salary</th>
                     <th>Allowance</th>
                     <th>Total Amount</th>
-                    <th>Paid On</th>
-                    <th>Invoice</th>
                     <th>Action</th>
                   </tr>
                   </thead>
@@ -71,8 +69,6 @@
                         <td>$<?php echo $cnt['basic_salary']; ?></td>
                         <td>$<?php echo $cnt['allowance']; ?></td>
                         <td>$<?php echo $cnt['total']; ?></td>
-                        <td><?php echo date('Y-m-d', strtotime($cnt['added_on'])); ?></td>
-                        <td><a href="<?php echo base_url(); ?>salary-invoice/<?php echo $cnt['id']; ?>" class="btn btn-warning">Invoice</a></td>
                         <td>
                           <a href="<?php echo base_url(); ?>delete-salary/<?php echo $cnt['id']; ?>" class="btn btn-danger">Delete</a>
                         </td>

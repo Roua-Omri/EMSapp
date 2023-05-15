@@ -56,7 +56,6 @@
                     <th>Joined On</th>
                     <th>Address</th>
                     <th>City</th>
-                    <th>State</th>
                     <th>Country</th>
                     <th>Actions</th>
                   </tr>
@@ -79,7 +78,6 @@
                         <td><?php echo date('d-m-Y', strtotime($cnt['doj'])); ?></td>
                         <td><?php echo $cnt['address']; ?></td>
                         <td><?php echo $cnt['city']; ?></td>
-                        <td><?php echo $cnt['state']; ?></td>
                         <td><?php echo $cnt['country']; ?></td>
                         <td>
                           <a href="<?php echo base_url(); ?>edit-staff/<?php echo $cnt['id']; ?>" class="btn btn-success">Edit</a>

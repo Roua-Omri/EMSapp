@@ -51,7 +51,7 @@
                     <th>To</th>
                     <th>Status</th>
                     <th>Description</th>
-                    <th>Applied On</th>
+                    
                   </tr>
                   </thead>
                   <tbody>
@@ -75,7 +75,6 @@
                           <?php endif; ?>
                         </td>
                         <td><?php echo $cnt['description']; ?></td>
-                        <td><?php echo date('d-m-Y', strtotime($cnt['applied_on'])); ?></td>
                       </tr>
                     <?php 
                       $i++;

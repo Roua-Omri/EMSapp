@@ -35,11 +35,10 @@ class Staff extends CI_Controller {
         $this->form_validation->set_rules('slcgender', 'Gender', 'required');
         $this->form_validation->set_rules('slcdepartment', 'Department', 'required');
         $this->form_validation->set_rules('txtemail', 'Email', 'trim|required|valid_email');
-        $this->form_validation->set_rules('txtmobile', 'Mobile Number ', 'required|regex_match[/^[0-9]{10}$/]');
+        $this->form_validation->set_rules('txtmobile', 'Mobile Number ', 'required');
         $this->form_validation->set_rules('txtdob', 'Date of Birth', 'required');
         $this->form_validation->set_rules('txtdoj', 'Date of Joining', 'required');
         $this->form_validation->set_rules('txtcity', 'City', 'required');
-        $this->form_validation->set_rules('txtstate', 'State', 'required');
         $this->form_validation->set_rules('slccountry', 'Country', 'required');
         
         $name=$this->input->post('txtname');
@@ -50,7 +49,6 @@ class Staff extends CI_Controller {
         $dob=$this->input->post('txtdob');
         $doj=$this->input->post('txtdoj');
         $city=$this->input->post('txtcity');
-        $state=$this->input->post('txtstate');
         $country=$this->input->post('slccountry');
         $address=$this->input->post('txtaddress');
         $added=$this->session->userdata('userid');
@@ -86,7 +84,7 @@ class Staff extends CI_Controller {
             $login=$this->Home_model->insert_login(array('username'=>$email,'password'=>$mobile,'usertype'=>2));
             if($login>0)
             {
-                $data=$this->Staff_model->insert_staff(array('id'=>$login,'staff_name'=>$name,'gender'=>$gender,'email'=>$email,'mobile'=>$mobile,'dob'=>$dob,'doj'=>$doj,'address'=>$address,'city'=>$city,'state'=>$state,'country'=>$country,'department_id'=>$department,'pic'=>$image,'added_by'=>$added));
+                $data=$this->Staff_model->insert_staff(array('id'=>$login,'staff_name'=>$name,'gender'=>$gender,'email'=>$email,'mobile'=>$mobile,'dob'=>$dob,'doj'=>$doj,'address'=>$address,'city'=>$city,'country'=>$country,'department_id'=>$department,'pic'=>$image,'added_by'=>$added));
             }
             
             if($data==true)
@@ -112,11 +110,10 @@ class Staff extends CI_Controller {
         $this->form_validation->set_rules('slcgender', 'Gender', 'required');
         $this->form_validation->set_rules('slcdepartment', 'Department', 'required');
         $this->form_validation->set_rules('txtemail', 'Email', 'trim|required|valid_email');
-        $this->form_validation->set_rules('txtmobile', 'Mobile Number ', 'required|regex_match[/^[0-9]{10}$/]');
+        $this->form_validation->set_rules('txtmobile', 'Mobile Number ', 'required');
         $this->form_validation->set_rules('txtdob', 'Date of Birth', 'required');
         $this->form_validation->set_rules('txtdoj', 'Date of Joining', 'required');
         $this->form_validation->set_rules('txtcity', 'City', 'required');
-        $this->form_validation->set_rules('txtstate', 'State', 'required');
         $this->form_validation->set_rules('slccountry', 'Country', 'required');
         
         $id=$this->input->post('txtid');
@@ -128,7 +125,6 @@ class Staff extends CI_Controller {
         $dob=$this->input->post('txtdob');
         $doj=$this->input->post('txtdoj');
         $city=$this->input->post('txtcity');
-        $state=$this->input->post('txtstate');
         $country=$this->input->post('slccountry');
         $address=$this->input->post('txtaddress');
 		$added=$this->session->userdata('userid');
@@ -141,7 +137,7 @@ class Staff extends CI_Controller {
             $this->load->library('upload', $config);
             if ( ! $this->upload->do_upload('filephoto'))
             {
-                $data=$this->Staff_model->update_staff(array('staff_name'=>$name,'gender'=>$gender,'email'=>$email,'mobile'=>$mobile,'dob'=>$dob,'doj'=>$doj,'address'=>$address,'city'=>$city,'state'=>$state,'country'=>$country,'department_id'=>$department),$id);
+                $data=$this->Staff_model->update_staff(array('staff_name'=>$name,'gender'=>$gender,'email'=>$email,'mobile'=>$mobile,'dob'=>$dob,'doj'=>$doj,'address'=>$address,'city'=>$city,'country'=>$country,'department_id'=>$department),$id);
             }
             else
             {
@@ -159,7 +155,7 @@ class Staff extends CI_Controller {
                 $this->image_lib->initialize($configer);
                 $this->image_lib->resize();
 
-                $data=$this->Staff_model->update_staff(array('staff_name'=>$name,'gender'=>$gender,'email'=>$email,'mobile'=>$mobile,'dob'=>$dob,'doj'=>$doj,'address'=>$address,'city'=>$city,'state'=>$state,'country'=>$country,'department_id'=>$department,'pic'=>$image_data['file_name'],'added_by'=>$added),$id);
+                $data=$this->Staff_model->update_staff(array('staff_name'=>$name,'gender'=>$gender,'email'=>$email,'mobile'=>$mobile,'dob'=>$dob,'doj'=>$doj,'address'=>$address,'city'=>$city,'country'=>$country,'department_id'=>$department,'pic'=>$image_data['file_name'],'added_by'=>$added),$id);
             }
             
             if($this->db->affected_rows() > 0)

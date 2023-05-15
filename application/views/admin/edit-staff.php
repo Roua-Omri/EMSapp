@@ -170,12 +170,6 @@
                         </div>
                       </div>
 
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label>State</label>
-                          <input type="text" name="txtstate" value="<?php echo $cnt['state'] ?>" class="form-control" placeholder="State">
-                        </div>
-                      </div>
 
                       <div class="col-md-6">
                         <div class="form-group">
